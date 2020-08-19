@@ -1,6 +1,7 @@
 Declare,metatab-latest
-Title,
-Description,
+Title,"Survey of Consumer Finances, Inheritance Extract"
+Description,An Extract from the survey of consumer finances for studying networth and
+Description,ineritance
 Identifier,4cb385e3-c925-4c41-8433-93e630c65358
 Name,federalreserve.gov-consumer_finances-2016-inherit-1.1.1
 Dataset,consumer_finances
@@ -14,17 +15,110 @@ Version.Major,1
 Version.Minor,1
 Version.Patch,1
 Created,2020-08-19T16:15:54
-Modified,2020-08-19T16:15:55
+Modified,2020-08-19T16:26:08
 Giturl,https://github.com/insights-civickowledge-com/survey_consumer_finances.git
-""
+
 Section,Contacts,Email,Organization,Url
 Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowledge.com
-""
+
 Section,Documentation,Title,Description,
 Documentation,file:README.md,README,,
-""
+Image,docs/networth_race_inc.png,networth_race_inc,Net Worth by Income Percentile and Race
+
 Section,References,Name,Description,
-""
+Reference,https://www.federalreserve.gov/econres/files/scf2016s.zip#p16i6.dta,scf_public_16,"Survey of consumer finances, full public dataset, 2016",
+Reference,https://www.federalreserve.gov/econres/files/scfp2016s.zip#rscfp2016.dta,scf_extract_16,"Survey of consumer finances, public extract, 2016",
+Reference,https://www.federalreserve.gov/econres/files/scf2016rw1s.zip#p16_rw1.dta,scf_weights_16,"Survey of consumer finances, replicate weights, 2016",
+
+Section ,Analysis,Title,Description
+Notebook,notebooks/Descriptive.ipynb,Basic descriptive stats. ,
+
 Section,Resources,Name,Description,
-""
-Section,Schema,DataType,AltName,Description
+Datafile,data/inherit_scf_16.csv,inherit_scf_16,Extract of the 2016 SCF for inheritance and networth,
+
+Section,Schema,DataType,AltName,Description,Has_Codes
+Table,inherit_scf_16,,,,
+Table.Column,case_id,integer,,,
+Table.Column,record_id,integer,,,
+Table.Column,implicate_id,integer,,,
+Table.Column,age_1,integer,,,
+Table.Column,age_2,integer,,,
+Table.Column,hisp,integer,,,
+Table.Column,race,string,,,
+Table.Column,addtional_race,integer,,,
+Table.Column,unusual_income,integer,,,
+Table.Column,ed_1,string,,,
+Table.Column,ed_2,string,,,
+Table.Column,ed_mother_1,string,,,
+Table.Column,ed_father_1,string,,,
+Table.Column,ed_mother_2,string,,,
+Table.Column,ed_father_2,string,,,
+Table.Column,occ_1,integer,,,
+Table.Column,occ_2,integer,,,
+Table.Column,gi_other_value,integer,,,
+Table.Column,fin_risk,integer,,,
+Table.Column,shop_credit,integer,,,
+Table.Column,shop_credit_2,integer,,,
+Table.Column,fin_know,integer,,,
+Table.Column,borrow_vacation,integer,,,
+Table.Column,plan_horizon,integer,,,
+Table.Column,spend_exceeds,integer,,,
+Table.Column,spend_exceeds_excl_house,integer,,,
+Table.Column,wt0,number,,,
+Table.Column,gi_type_1,string,,,
+Table.Column,gi_value_1,integer,,,
+Table.Column,gi_year_1,integer,,,
+Table.Column,gi_from_1,integer,,,
+Table.Column,gi_type_2,string,,,
+Table.Column,gi_value_2,integer,,,
+Table.Column,gi_year_2,integer,,,
+Table.Column,gi_from_2,integer,,,
+Table.Column,gi_type_3,string,,,
+Table.Column,gi_value_3,integer,,,
+Table.Column,gi_year_3,integer,,,
+Table.Column,gi_from_3,integer,,,
+Table.Column,gi_sum,integer,,,
+Table.Column,education,string,,,
+Table.Column,occ,integer,,,
+Table.Column,networth,number,,,
+Table.Column,income,number,,,
+Table.Column,nwcat,integer,,,
+Table.Column,nwpctlecat,integer,,,
+Table.Column,norminc,number,,,
+Table.Column,ninccat,integer,,,
+Table.Column,ninc2cat,integer,,,
+Table.Column,nincpctlecat,integer,,,
+Table.Column,occat1,integer,,,
+Table.Column,occat2,integer,,,
+Table.Column,edcl,string,,,
+Table.Column,lifecl,integer,,,
+Table.Column,famstruct,integer,,,
+Table.Column,married,integer,,,
+Table.Column,agecl,string,,,
+Table.Column,housecl,integer,,,
+Table.Column,racecl,integer,,,
+Table.Column,racecl4,integer,,,
+Table.Column,asset,number,,,
+Table.Column,liq,integer,,,
+Table.Column,bond,integer,,,
+Table.Column,fin,integer,,,
+Table.Column,nfin,number,,,
+Table.Column,debt,number,,,
+Table.Column,indcat,integer,,,
+Table.Column,equity,number,,,
+Table.Column,homeeq,number,,,
+Table.Column,revpay,number,,,
+Table.Column,bnkruplast5,integer,,,
+Table.Column,debt2inc,number,,,
+Table.Column,hsaving,integer,,,
+Table.Column,saved,integer,,,
+Table.Column,lt_planner,integer,,,
+Table.Column,nincpctle,integer,,,
+Table.Column,ninc,integer,,,
+Table.Column,nwpctle,integer,,,
+Table.Column,n_gift,integer,,,
+Table.Column,n_inherit,integer,,,
+Table.Column,n_trust,integer,,,
+Table.Column,n_transfer,integer,,,
+Table.Column,any_transfer,integer,,,
+Table.Column,any_inherit,integer,,,
