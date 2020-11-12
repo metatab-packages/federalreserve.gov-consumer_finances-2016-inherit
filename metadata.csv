@@ -1,21 +1,21 @@
 Declare,metatab-latest
 Title,"Survey of Consumer Finances, Inheritance Extract"
 Description,An Extract from the survey of consumer finances for studying networth and
-Description,ineritance
+Description,"ineritance, from multiple years"
 Identifier,4cb385e3-c925-4c41-8433-93e630c65358
-Name,federalreserve.gov-consumer_finances-2016-inherit-1.1.1
+Name,federalreserve.gov-consumer_finances-2016e2019-inherit-1.1.3
 Dataset,consumer_finances
 Origin,federalreserve.gov
-Time,2016
+Time,2016e2019
 Space,
 Grain,
 Variant,inherit
-Version,1.1.1
+Version,1.1.3
 Version.Major,1
 Version.Minor,1
-Version.Patch,1
+Version.Patch,3
 Created,2020-08-19T16:15:54
-Modified,2020-08-19T16:26:08
+Modified,2020-11-12T00:43:51
 Giturl,https://github.com/insights-civickowledge-com/survey_consumer_finances.git
 
 Section,Contacts,Email,Organization,Url
@@ -23,28 +23,24 @@ Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowle
 
 Section,Documentation,Title,Description,
 Documentation,file:README.md,README,,
-Image,docs/networth_race_inc.png,networth_race_inc,Net Worth by Income Percentile and Race
+Image,docs/networth_race_inc.png,networth_race_inc,Net Worth by Income Percentile and Race,
 
 Section,References,Name,Description,
-Reference,https://www.federalreserve.gov/econres/files/scf2016s.zip#p16i6.dta,scf_public_16,"Survey of consumer finances, full public dataset, 2016",
-Reference,https://www.federalreserve.gov/econres/files/scfp2016s.zip#rscfp2016.dta,scf_extract_16,"Survey of consumer finances, public extract, 2016",
-Reference,https://www.federalreserve.gov/econres/files/scf2016rw1s.zip#p16_rw1.dta,scf_weights_16,"Survey of consumer finances, replicate weights, 2016",
-
-Section ,Analysis,Title,Description
-Notebook,notebooks/Descriptive.ipynb,Basic descriptive stats. ,
+Reference,metapack+http://library.metatab.org/federalreserve.gov-consumer_finances-1.1.1.csv,scf,Survey of consumer finances data packages,
 
 Section,Resources,Name,Description,
-Datafile,data/inherit_scf_16.csv,inherit_scf_16,Extract of the 2016 SCF for inheritance and networth,
+Datafile,notebooks/Extract.ipynb#df,inherit_scf_16_19,Extract of the 2016 and 2019 SCF for inheritance and networth,
 
-Section,Schema,DataType,AltName,Description,Has_Codes
-Table,inherit_scf_16,,,,
+Section,Schema,DataType,Description,,
+Table,inherit_scf_16_19,,,,
+Table.Column,year,integer,Year of the SCL reelase the record was drawn from,,
 Table.Column,case_id,integer,,,
 Table.Column,record_id,integer,,,
-Table.Column,implicate_id,integer,,,
-Table.Column,age_1,integer,,,
-Table.Column,age_2,integer,,,
-Table.Column,hisp,integer,,,
-Table.Column,race,string,,,
+Table.Column,implicate_id,integer,"Impicate number, 1 to 5",,
+Table.Column,age_1,integer,Age of first household adult,,
+Table.Column,age_2,integer,Age of second household adult. ,,
+Table.Column,hisp,integer,Is the HH Hispanic,,
+Table.Column,race,string,Simpified race for HH,,
 Table.Column,addtional_race,integer,,,
 Table.Column,unusual_income,integer,,,
 Table.Column,ed_1,string,,,
@@ -77,9 +73,6 @@ Table.Column,gi_type_3,string,,,
 Table.Column,gi_value_3,integer,,,
 Table.Column,gi_year_3,integer,,,
 Table.Column,gi_from_3,integer,,,
-Table.Column,gi_sum,integer,,,
-Table.Column,education,string,,,
-Table.Column,occ,integer,,,
 Table.Column,networth,number,,,
 Table.Column,income,number,,,
 Table.Column,nwcat,integer,,,
@@ -99,9 +92,9 @@ Table.Column,housecl,integer,,,
 Table.Column,racecl,integer,,,
 Table.Column,racecl4,integer,,,
 Table.Column,asset,number,,,
-Table.Column,liq,integer,,,
-Table.Column,bond,integer,,,
-Table.Column,fin,integer,,,
+Table.Column,liq,number,,,
+Table.Column,bond,number,,,
+Table.Column,fin,number,,,
 Table.Column,nfin,number,,,
 Table.Column,debt,number,,,
 Table.Column,indcat,integer,,,
@@ -112,13 +105,22 @@ Table.Column,bnkruplast5,integer,,,
 Table.Column,debt2inc,number,,,
 Table.Column,hsaving,integer,,,
 Table.Column,saved,integer,,,
+Table.Column,education,string,,,
+Table.Column,occ,integer,,,
 Table.Column,lt_planner,integer,,,
 Table.Column,nincpctle,integer,,,
 Table.Column,ninc,integer,,,
 Table.Column,nwpctle,integer,,,
+Table.Column,gi_sum,integer,,,
 Table.Column,n_gift,integer,,,
 Table.Column,n_inherit,integer,,,
 Table.Column,n_trust,integer,,,
 Table.Column,n_transfer,integer,,,
 Table.Column,any_transfer,integer,,,
 Table.Column,any_inherit,integer,,,
+Table.Column,hhsize,integer,,,
+Table.Column,networthpc,number,,,
+Table.Column,assetpc,number,,,
+
+Section,Analysis,Title,Description
+Notebook,notebooks/Descriptive.ipynb,Basic descriptive stats.,
