@@ -86,8 +86,10 @@ def impl_pivot(df, indices, sum_var, wt_var='wt0', agg=wmedian):
     
 # Create a weighted sample
 def make_sample(df, N=10_000_000, extra_cols = []):
-    t = df[['case_id', 'record_id', 'race', 'age_1','agecl','norminc','networth','asset', 'gi_sum', 'occat1', 'housecl', 'edcl', 'indcat', 'famstruct', 'married',
+    t = df[['case_id', 'record_id', 'race', 'age_1','agecl','norminc','networth','asset', 
+            'gi_sum', 'occat1', 'housecl', 'edcl', 'indcat', 'famstruct', 'married',
             'any_inherit', 'any_transfer'] + extra_cols]
+            
     dfs = t.sample(N,replace=True, weights=df.wt0)
 
     dfs['income_decile'] = pd.qcut(dfs.norminc, 10, labels=False)  
