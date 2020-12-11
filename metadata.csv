@@ -3,37 +3,37 @@ Title,"Survey of Consumer Finances, Inheritance Extract"
 Description,An Extract from the survey of consumer finances for studying networth and
 Description,"ineritance, from multiple years"
 Identifier,4cb385e3-c925-4c41-8433-93e630c65358
-Name,federalreserve.gov-consumer_finances-2016e2019-inherit-1.2.3
+Name,federalreserve.gov-consumer_finances-2016e2019-inherit-1.2.5
 Dataset,consumer_finances
 Origin,federalreserve.gov
 Time,2016e2019
 Space,
 Grain,
 Variant,inherit
-Version,1.2.3
+Version,1.2.5
 Version.Major,1
 Version.Minor,2
-Version.Patch,3
+Version.Patch,5
 Created,2020-08-19T16:15:54
-Modified,2020-11-14T20:12:41
+Modified,2020-12-09T01:59:40
 Giturl,https://github.com/insights-civickowledge-com/survey_consumer_finances.git
-""
+
 Section,Contacts,Email,Organization,Url
 Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowledge.com
-""
+
 Section,Documentation,Title,Description,
 Documentation,file:README.md,README,,
 Image,docs/networth_race_inc.png,networth_race_inc,Net Worth by Income Percentile and Race,
 Note,Version 1.2.2 Added the Inflatable flag,,,
 Note,Version 1.2.3 Inflated dollar ammounts to current dollars,,,
-""
+
 Section,References,Name,Description,
-Reference,metapack+http://library.metatab.org/federalreserve.gov-consumer_finances-1.1.1.csv,scf,Survey of consumer finances data packages,
+Reference,metapack+http://library.metatab.org/federalreserve.gov-consumer_finances.csv,scf,Survey of consumer finances data packages,
 Reference,https://fred.stlouisfed.org/graph/fredgraph.csv?&id=CPIAUCSL,cpi,Consumer Price Index,
-""
+
 Section,Resources,Name,Description,
 Datafile,notebooks/Extract.ipynb#df,inherit_scf_16_19,Extract of the 2016 and 2019 SCF for inheritance and networth,
-""
+
 Section,Schema,DataType,Description,Inflatable
 Table,inherit_scf_16_19,,,
 Table.Column,year,integer,Year of the SCL reelase the record was drawn from,
@@ -128,6 +128,6 @@ Table.Column,gi_pv_10,number,"Value of each gift or transfer, compounded ot the 
 Table.Column,gi_pv_7,number,"Value of each gift or transfer, compounded ot the present at 7%",x
 Table.Column,gi_pv_5,number,"Value of each gift or transfer, compounded ot the present at 5%",x
 Table.Column,gi_value_cd,number,"Sum of transfers, with each transfer inflated to current dollars",x
-""
+
 Section,Analysis,Title,Description
 Notebook,notebooks/Descriptive.ipynb,Basic descriptive stats.,
